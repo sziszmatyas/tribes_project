@@ -1,0 +1,61 @@
+{
+  "extends": ["airbnb", "prettier", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ],
+    "node/no-extraneous-import": ["error", {
+      "allowModules": ["express"]
+    }],
+    "node/no-unpublished-import": ["error", {
+      "allowModules": [],
+      "convertPath": {
+        "src/**/*.jsx": ["^src/(.+?)\\.jsx$", "lib/$1.js"]
+      },
+      "tryExtensions": [".js", ".json", ".node"]
+    }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+  },
+  "settings": {
+    "node": {
+      "resolvePaths": ["node_modules/@types"],
+      "tryExtensions": [".js", ".json", ".node", ".ts", ".d.ts"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "globals": {
+    "unknown": "readonly",
+    "test": "readonly",
+    "expect": "readonly",
+    "describe": "readonly",
+    "it": "readonly"
+  }
+}
